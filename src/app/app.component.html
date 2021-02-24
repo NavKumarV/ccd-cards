@@ -1,22 +1,47 @@
-<ng-container *ngFor="let section of displaySections">
-  <div class="heading-label"
-      *ngIf="section?.title && section?.theme?.component !== 'sb-course-cards-hlist' && section?.theme?.component !== 'sb-library-cards-hlist'">
-      <span>{{section?.title}}</span>
-  </div>
-  <ng-container *ngIf="section?.theme?.component === 'sb-pills-grid'">
-      <sb-pills-grid [pillShape]="section?.theme?.inputs?.pillShape"
-          [pillsViewType]="section?.theme?.inputs?.pillsViewType"
-          [selectMode]="section?.theme?.inputs?.selectMode"
+<div style="border-radius: 40px;border:1px solid #f2f2f2;    width: 376px;
+  height: 720px;margin:0 auto;padding:40px 8px;background:#000;box-shadow: 0 10px 10px 10px #ddd;">
+  <div
+    style="background: #F3F7FB;height: calc(100% - 24px);overflow-y: auto;padding-bottom: 24px;width:360px;height:640px;">
+    <br>
+    <ng-container *ngFor="let section of displaySections">
+      <div class="heading-label pl-16"
+        *ngIf="section?.title && section?.theme?.component !== 'sb-course-cards-hlist' && section?.theme?.component !== 'sb-library-cards-hlist'">
+        <span>{{section?.title}}</span>
+      </div>
+      <ng-container *ngIf="section?.theme?.component === 'sb-pills-grid'">
+        <sb-pills-grid [pillShape]="section?.theme?.inputs?.pillShape"
+          [pillsViewType]="section?.theme?.inputs?.pillsViewType" [selectMode]="section?.theme?.inputs?.selectMode"
           [minDisplayCount]="section?.theme?.inputs?.minDisplayCount"
-          [viewMoreText]="section?.theme?.inputs?.viewMoreText"
-          [viewLessText]="section?.theme?.inputs?.viewLessText"
+          [viewMoreText]="section?.theme?.inputs?.viewMoreText" [viewLessText]="section?.theme?.inputs?.viewLessText"
           [showMoreViewType]="section?.theme?.inputs?.showMoreViewType"
-          [pillsMultiRow]="section?.theme?.inputs?.pillsMultiRow"
-          [pillBorder]="section?.theme?.inputs?.pillBorder">
+          [pillsMultiRow]="section?.theme?.inputs?.pillsMultiRow" [pillBorder]="section?.theme?.inputs?.pillBorder">
           <sb-pill-item *ngFor="let pillData of section.data" [name]="pillData?.facet | titlecase"
             [icon]="{ component: 'sb-pill-item', input: 'icon' } | themeInputsSelector : section?.theme : pillData?.facet"
             [theme]="({ component: 'sb-pill-item', input: 'theme' } | themeInputsSelector : section?.theme : pillData?.facet) || (pillData?.facet | randomColorMapPipe)"
             [value]="pillData"></sb-pill-item>
-      </sb-pills-grid>
-  </ng-container>
-</ng-container>
+        </sb-pills-grid>
+      </ng-container>
+    </ng-container>
+    <br>
+    <h5>Verticle</h5>
+    <div *ngFor="let section of sectionGroup?.sections">
+      <div class="sb-textbook-container" [id]="sectionGroup.name + '_'+ section.name"
+        *ngIf="section?.contents && section?.contents?.length">
+        <sb-library-cards-stack [title]="section?.name" [contentList]="contentData2?.contents" [isOffline]="false"
+          [viewMoreButtonText]="'VIEW_MORE'" [maxCardCount]="3" [layoutConfig]="{layout: 'v3'}">
+        </sb-library-cards-stack>
+      </div>
+    </div>
+    <br>
+    <hr>
+    ​
+    <h5>Horizontal</h5>
+    <sb-library-cards-hlist [title]="contentData2?.name" [contentList]="contentData2?.contents"
+      [type]="'mobile_textbook'" [isLoading]="false" [isOffline]="false" [maxCardCount]="4"
+      [layoutConfig]="{layout: 'v3'}" [viewMoreButtonText]="('VIEW_ALL')" [viewMoreButtonPosition]="'right'">
+    </sb-library-cards-hlist>
+    <br>
+    <hr>
+
+  </div>
+</div>
