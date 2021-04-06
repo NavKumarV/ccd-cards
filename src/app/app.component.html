@@ -23,7 +23,8 @@
       </ng-container>
     </ng-container>
     <br>
-    <h5>Verticle</h5>
+
+    <!-- <h5>Verticle</h5>
     <div *ngFor="let section of sectionGroup?.sections">
       <div class="sb-textbook-container" [id]="sectionGroup.name + '_'+ section.name"
         *ngIf="section?.contents && section?.contents?.length">
@@ -31,9 +32,10 @@
           [viewMoreButtonText]="'VIEW_MORE'" [maxCardCount]="3" [layoutConfig]="{layout: 'v3'}">
         </sb-library-cards-stack>
       </div>
-    </div>
+    </div> -->
+
     <br>
-    <hr>
+    <!-- <hr>
     ​
     <h5>Horizontal</h5>
     <sb-library-cards-hlist [title]="contentData2?.name" [contentList]="contentData2?.contents"
@@ -41,7 +43,25 @@
       [layoutConfig]="{layout: 'v3'}" [viewMoreButtonText]="('VIEW_ALL')" [viewMoreButtonPosition]="'right'">
     </sb-library-cards-hlist>
     <br>
-    <hr>
+    <hr> -->
 
+    <hr>
+    <div>
+      <sb-list [title]="'Category'" [btnText]="'REPORT OTHER ISSUE'" (itemClick)="onItemSelect($event)"></sb-list>
+    </div>
+
+    <hr>
+    <div>
+      <sb-carousel [title]="'Category'"></sb-carousel>
+    </div>
   </div>
 </div>
+
+
+<ag-grid-angular
+    style="width: 100%; height: 100vh;"
+    class="ag-theme-balham"
+    [rowData]="rowData" 
+    [columnDefs]="columnDefs"
+    [frameworkComponents]="frameworkComponents">
+</ag-grid-angular>

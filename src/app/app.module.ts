@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CommonConsumptionModule } from '@project-sunbird/common-consumption-v8';
 import { RandomColorMapPipe } from '../pipes/random-color-map.pipe';
 import { ThemeInputsSelectorPipe } from '../pipes/theme-inputs-selector.pipe';
+import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ThemeInputsSelectorPipe } from '../pipes/theme-inputs-selector.pipe';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CommonConsumptionModule
+    CommonConsumptionModule,
+    AgGridModule.withComponents(null)
   ],
   providers: [],
   bootstrap: [AppComponent]
