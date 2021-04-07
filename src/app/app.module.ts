@@ -7,12 +7,14 @@ import { CommonConsumptionModule } from '@project-sunbird/common-consumption-v8'
 import { RandomColorMapPipe } from '../pipes/random-color-map.pipe';
 import { ThemeInputsSelectorPipe } from '../pipes/theme-inputs-selector.pipe';
 import { AgGridModule } from 'ag-grid-angular';
+import { AppCarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ThemeInputsSelectorPipe,
-    RandomColorMapPipe
+    RandomColorMapPipe,
+    AppCarouselComponent
   ],
   imports: [
     BrowserModule,

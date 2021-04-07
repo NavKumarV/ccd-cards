@@ -1,0 +1,7 @@
+<div #carouselContainer class="carousel-container">
+  <div class="carousel-scroller">
+    <div class="carousel-card" *ngFor="let i of [0,1,2,3,4,5,6,7,8,9]"> </div>
+  </div>
+  <span class="carousel-btn prev" (click)="scrollToPrevPage($event)"></span>
+  <span class="carousel-btn next" (click)="scrollToNextPage($event)"></span>
+</div>
